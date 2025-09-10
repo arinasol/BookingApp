@@ -11,6 +11,7 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor @Builder
+@ToString(exclude = "password")
 public class User {
     @Id
     private String id;
