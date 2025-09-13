@@ -4,6 +4,7 @@ import com.jelenasstudio.bookingapp.model.DayOfWeek;
 import com.jelenasstudio.bookingapp.model.SalonSchedule;
 import com.jelenasstudio.bookingapp.model.WorkingHours;
 import com.jelenasstudio.bookingapp.service.SalonScheduleService;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -11,6 +12,7 @@ import java.time.LocalDate;
 
 @RestController
 @RequestMapping("/schedule")
+@PreAuthorize("hasRole('ADMIN')")
 public class ScheduleController {
 
     private final SalonScheduleService salonScheduleService;
