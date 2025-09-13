@@ -4,19 +4,17 @@ import com.jelenasstudio.bookingapp.model.DayOfWeek;
 import com.jelenasstudio.bookingapp.model.SalonSchedule;
 import com.jelenasstudio.bookingapp.model.WorkingHours;
 import com.jelenasstudio.bookingapp.repository.ScheduleRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 
 import java.time.LocalDate;
 
 @Service
+@RequiredArgsConstructor
 public class SalonScheduleService {
 
     private final ScheduleRepository repository;
-
-    public SalonScheduleService(ScheduleRepository repository) {
-        this.repository = repository;
-    }
 
     // Get or create a schedule
     public SalonSchedule getSchedule() {
