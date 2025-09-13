@@ -30,9 +30,14 @@ public class AuthService {
     }
 
     public AuthResponse login(AuthRequest req) {
+
+        try {
         authManager.authenticate(
                 new UsernamePasswordAuthenticationToken(req.getEmail(), req.getPassword())
         );
+        } catch (BadCredentialsException ex) {
+            throw new RuntimeException("Wrong email or password");
+        }
 
         User user = userService.findByEmail(req.getEmail());
 
